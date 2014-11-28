@@ -67,6 +67,12 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	EnableDocking(CBRS_ALIGN_ANY);
 	DockControlBar(&m_wndToolBar);
 
+	//auto format: Ctrl + K + F (selection), Ctrl + K + D (document)
+	//GetMenu()->GetSubMenu(0)->CheckMenuItem(0, MF_BYPOSITION | MFS_CHECKED);
+	GetMenu()->GetSubMenu(0)->CheckMenuItem(ID_FILE_NEW, MF_BYCOMMAND | MFS_CHECKED);
+	//GetMenu()->GetSubMenu(0)->SetDefaultItem(1, TRUE);
+	GetMenu()->GetSubMenu(0)->SetDefaultItem(ID_FILE_OPEN, FALSE); //overwritten by next line
+	GetMenu()->GetSubMenu(0)->SetDefaultItem(5, TRUE);
 
 	return 0;
 }
