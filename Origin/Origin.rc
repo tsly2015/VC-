@@ -138,6 +138,7 @@ BEGIN
     BEGIN
         MENUITEM "&About Origin...",            ID_APP_ABOUT
     END
+    MENUITEM "Test",                        ID_TEST
 END
 
 
