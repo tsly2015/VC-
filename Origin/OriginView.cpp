@@ -26,6 +26,7 @@ BEGIN_MESSAGE_MAP(COriginView, CView)
 	ON_COMMAND(ID_FILE_PRINT, &CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, &CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CView::OnFilePrintPreview)
+	ON_COMMAND(ID_TEST, &COriginView::OnTest)
 END_MESSAGE_MAP()
 
 // COriginView construction/destruction
@@ -102,3 +103,12 @@ COriginDoc* COriginView::GetDocument() const // non-debug version is inline
 
 
 // COriginView message handlers
+
+
+void COriginView::OnTest()
+{
+	// TODO: Add your command handler code here
+	//CCmdTarget -> CWnd -> CView, CMainFrame
+	//CCmdTarget -> CDocument, CWinApp
+	MessageBox(L"From View"); //View, Doc, MainFrame, App
+}

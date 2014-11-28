@@ -22,6 +22,7 @@
 IMPLEMENT_DYNCREATE(COriginDoc, CDocument)
 
 BEGIN_MESSAGE_MAP(COriginDoc, CDocument)
+	ON_COMMAND(ID_TEST, &COriginDoc::OnTest)
 END_MESSAGE_MAP()
 
 
@@ -135,3 +136,10 @@ void COriginDoc::Dump(CDumpContext& dc) const
 
 
 // COriginDoc commands
+
+
+void COriginDoc::OnTest()
+{
+	// TODO: Add your command handler code here
+	AfxMessageBox(L"From Doc");
+}

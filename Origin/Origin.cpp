@@ -25,6 +25,7 @@ BEGIN_MESSAGE_MAP(COriginApp, CWinAppEx)
 	ON_COMMAND(ID_FILE_OPEN, &CWinAppEx::OnFileOpen)
 	// Standard print setup command
 	ON_COMMAND(ID_FILE_PRINT_SETUP, &CWinAppEx::OnFilePrintSetup)
+	ON_COMMAND(ID_TEST, &COriginApp::OnTest)
 END_MESSAGE_MAP()
 
 
@@ -178,3 +179,10 @@ void COriginApp::OnAppAbout()
 
 
 
+
+
+void COriginApp::OnTest()
+{
+	// TODO: Add your command handler code here
+	AfxMessageBox(L"From App");
+}
