@@ -45,6 +45,19 @@ public:
 //	afx_msg void OnTest1Show();
 	afx_msg void OnRButtonDown(UINT nFlags, CPoint point);
 	afx_msg void OnTest1Show();
+private:
+	int m_nIndex;
+	CMenu m_menu;
+public:
+	afx_msg void OnChar(UINT nChar, UINT nRepCnt, UINT nFlags);
+private:
+	CString m_strLine;
+public:
+	CStringArray m_strArray;
+	afx_msg void OnPhone1();
+	afx_msg void OnPhone2();
+	afx_msg void OnPhone3();
+	afx_msg void OnPhone4();
 };
 
 #ifndef _DEBUG  // debug version in OriginView.cpp

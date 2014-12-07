@@ -30,6 +30,11 @@ BEGIN_MESSAGE_MAP(COriginView, CView)
 //	ON_COMMAND(ID_TEST1_SHOW, &COriginView::OnTest1Show)
 	ON_WM_RBUTTONDOWN()
 	ON_COMMAND(ID_TEST1_SHOW, &COriginView::OnTest1Show)
+	ON_WM_CHAR()
+	ON_COMMAND(IDM_PHONE1, &COriginView::OnPhone1)
+	ON_COMMAND(IDM_PHONE2, &COriginView::OnPhone2)
+	ON_COMMAND(IDM_PHONE3, &COriginView::OnPhone3)
+	ON_COMMAND(IDM_PHONE4, &COriginView::OnPhone4)
 END_MESSAGE_MAP()
 
 // COriginView construction/destruction
@@ -38,6 +43,8 @@ COriginView::COriginView()
 {
 	// TODO: add construction code here
 
+	m_nIndex = -1;
+	m_strLine = _T("");
 }
 
 COriginView::~COriginView()
@@ -143,4 +150,64 @@ void COriginView::OnTest1Show()
 {
 	// TODO: Add your command handler code here
 	MessageBox(L"From View");
+}
+
+
+void COriginView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
+{
+	// TODO: Add your message handler code here and/or call default
+	CClientDC dc(this);
+	if (0x0d == nChar)
+	{
+		if (0 == ++m_nIndex)
+		{
+			m_menu.CreatePopupMenu();
+			GetParent()->GetMenu()->AppendMenu(MF_POPUP, (UINT)m_menu.m_hMenu, L"PhoneBook");
+			GetParent()->DrawMenuBar();
+		}
+		m_menu.AppendMenuW(MF_STRING, IDM_PHONE1 + m_nIndex, m_strLine.Left(m_strLine.Find(' ')));
+		m_strArray.Add(m_strLine);
+		m_strLine.Empty();
+	}
+	else
+	{
+		CString temp;
+		temp.Format(_T("%c"), nChar);
+		m_strLine += temp;
+		dc.TextOut(0, 0, m_strLine);
+	}
+
+	CView::OnChar(nChar, nRepCnt, nFlags);
+}
+
+
+void COriginView::OnPhone1()
+{
+	// TODO: Add your command handler code here
+	CClientDC dc(this);
+	dc.TextOut(0, 0, m_strArray.GetAt(0));
+}
+
+
+void COriginView::OnPhone2()
+{
+	// TODO: Add your command handler code here
+	CClientDC dc(this);
+	dc.TextOut(0, 0, m_strArray.GetAt(1));
+}
+
+
+void COriginView::OnPhone3()
+{
+	// TODO: Add your command handler code here
+	CClientDC dc(this);
+	dc.TextOut(0, 0, m_strArray.GetAt(2));
+}
+
+
+void COriginView::OnPhone4()
+{
+	// TODO: Add your command handler code here
+	CClientDC dc(this);
+	dc.TextOut(0, 0, m_strArray.GetAt(3));
 }
