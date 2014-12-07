@@ -143,6 +143,15 @@ BEGIN
     MENUITEM "Test",                        ID_TEST
 END
 
+IDR_MENU1 MENU
+BEGIN
+    POPUP "Test1"
+    BEGIN
+        MENUITEM "Show",                        ID_TEST1_SHOW
+        MENUITEM "Quit",                        ID_TEST1_QUIT
+    END
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //

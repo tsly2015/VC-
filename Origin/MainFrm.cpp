@@ -23,6 +23,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_WM_CREATE()
 	ON_COMMAND(ID_TEST, &CMainFrame::OnTest)
 	ON_UPDATE_COMMAND_UI(ID_EDIT_COPY, &CMainFrame::OnUpdateEditCopy)
+	ON_COMMAND(ID_TEST1_SHOW, &CMainFrame::OnTest1Show)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -136,4 +137,11 @@ void CMainFrame::OnUpdateEditCopy(CCmdUI *pCmdUI)
 	// TODO: Add your command update UI handler code here
 	//if (ID_EDIT_COPY == pCmdUI->m_nID && 5 == pCmdUI->m_nIndex)
 	pCmdUI->Enable();
+}
+
+
+void CMainFrame::OnTest1Show()
+{
+	// TODO: Add your command handler code here
+	MessageBox(L"From MainFrame");
 }

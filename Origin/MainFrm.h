@@ -43,6 +43,7 @@ public:
 	CBitmap m_bitmap1;
 	CBitmap m_bitmap2;
 	afx_msg void OnUpdateEditCopy(CCmdUI *pCmdUI);
+	afx_msg void OnTest1Show();
 };
 
 

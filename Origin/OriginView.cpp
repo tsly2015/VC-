@@ -27,6 +27,8 @@ BEGIN_MESSAGE_MAP(COriginView, CView)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, &CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CView::OnFilePrintPreview)
 	ON_COMMAND(ID_TEST, &COriginView::OnTest)
+	ON_COMMAND(ID_TEST1_SHOW, &COriginView::OnTest1Show)
+	ON_WM_RBUTTONDOWN()
 END_MESSAGE_MAP()
 
 // COriginView construction/destruction
@@ -111,4 +113,25 @@ void COriginView::OnTest()
 	//CCmdTarget -> CWnd -> CView, CMainFrame
 	//CCmdTarget -> CDocument, CWinApp
 	MessageBox(L"From View"); //View, Doc, MainFrame, App
+}
+
+
+void COriginView::OnTest1Show()
+{
+	// TODO: Add your command handler code here
+	MessageBox(L"From View");
+}
+
+
+void COriginView::OnRButtonDown(UINT nFlags, CPoint point)
+{
+	// TODO: Add your message handler code here and/or call default
+	CMenu menu;
+	menu.LoadMenu(IDR_MENU1);
+	CMenu* pPopup = menu.GetSubMenu(0);
+
+	ClientToScreen(&point);
+	pPopup->TrackPopupMenu(TPM_LEFTALIGN | TPM_RIGHTBUTTON, point.x, point.y, this); //only View, no MainFrame
+
+	CView::OnRButtonDown(nFlags, point);
 }
