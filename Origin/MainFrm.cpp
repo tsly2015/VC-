@@ -24,6 +24,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_COMMAND(ID_TEST, &CMainFrame::OnTest)
 	ON_UPDATE_COMMAND_UI(ID_EDIT_COPY, &CMainFrame::OnUpdateEditCopy)
 	ON_COMMAND(ID_TEST1_SHOW, &CMainFrame::OnTest1Show)
+	ON_COMMAND(IDM_HELLO, OnHello)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -93,6 +94,20 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	GetMenu()->GetSubMenu(2)->SetMenuItemBitmaps(0, MF_BYPOSITION, &m_bitmap1, &m_bitmap2);
 
 	//GetMenu()->GetSubMenu(0)->EnableMenuItem(1, MF_BYPOSITION | MF_DISABLED | MF_GRAYED);
+
+	CMenu menu2;
+	menu2.CreateMenu();
+	//GetMenu()->AppendMenu(MF_POPUP, (UINT)menu2.m_hMenu, L"Test2");
+	GetMenu()->InsertMenu(2, MF_POPUP | MF_BYPOSITION, (UINT)menu2.m_hMenu, L"Test3");
+	//menu2.AppendMenu(MF_STRING, 111, L"Hello");
+	menu2.AppendMenu(MF_STRING, IDM_HELLO, L"Hello");
+	menu2.AppendMenu(MF_STRING, 112, L"Bye");
+	GetMenu()->GetSubMenu(0)->InsertMenu(ID_FILE_OPEN, MF_BYCOMMAND | MF_STRING, 113, L"VC");
+	//GetMenu()->DeleteMenu(1, MF_BYPOSITION);
+	GetMenu()->GetSubMenu(0)->DeleteMenu(1, MF_BYPOSITION);
+
+	menu2.Detach();
+
 	return 0;
 }
 
@@ -144,4 +159,9 @@ void CMainFrame::OnTest1Show()
 {
 	// TODO: Add your command handler code here
 	MessageBox(L"From MainFrame");
+}
+
+void CMainFrame::OnHello()
+{
+	MessageBox(L"Hello");
 }

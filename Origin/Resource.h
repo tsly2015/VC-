@@ -12,6 +12,7 @@
 #define ID_TEST                         32771
 #define ID_TEST1_SHOW                   32772
 #define ID_TEST1_QUIT                   32773
+#define IDM_HELLO                       111 //manually added
 
 // Next default values for new objects
 // 
