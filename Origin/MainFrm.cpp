@@ -37,7 +37,7 @@ static UINT indicators[] =
 CMainFrame::CMainFrame()
 {
 	// TODO: add member initialization code here
-	m_bAutoMenuEnable = FALSE;
+	//m_bAutoMenuEnable = FALSE;
 }
 
 CMainFrame::~CMainFrame()
@@ -68,6 +68,13 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	EnableDocking(CBRS_ALIGN_ANY);
 	DockControlBar(&m_wndToolBar);
 
+	SetMenu(NULL);
+
+	CMenu menu;
+	menu.LoadMenu(IDR_MAINFRAME);
+	SetMenu(&menu);
+	menu.Detach();
+
 	//auto format: Ctrl + K + F (selection), Ctrl + K + D (document)
 	//GetMenu()->GetSubMenu(0)->CheckMenuItem(0, MF_BYPOSITION | MFS_CHECKED);
 	GetMenu()->GetSubMenu(0)->CheckMenuItem(ID_FILE_NEW, MF_BYCOMMAND | MFS_CHECKED);
@@ -83,7 +90,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	m_bitmap2.LoadBitmap(IDB_BITMAP2);
 	GetMenu()->GetSubMenu(2)->SetMenuItemBitmaps(0, MF_BYPOSITION, &m_bitmap1, &m_bitmap2);
 
-	GetMenu()->GetSubMenu(0)->EnableMenuItem(1, MF_BYPOSITION | MF_DISABLED | MF_GRAYED);
+	//GetMenu()->GetSubMenu(0)->EnableMenuItem(1, MF_BYPOSITION | MF_DISABLED | MF_GRAYED);
 	return 0;
 }
 
