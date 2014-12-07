@@ -44,6 +44,7 @@ public:
 	afx_msg void OnTest();
 //	afx_msg void OnTest1Show();
 	afx_msg void OnRButtonDown(UINT nFlags, CPoint point);
+	afx_msg void OnTest1Show();
 };
 
 #ifndef _DEBUG  // debug version in OriginView.cpp

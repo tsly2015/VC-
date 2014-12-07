@@ -29,6 +29,7 @@ BEGIN_MESSAGE_MAP(COriginView, CView)
 	ON_COMMAND(ID_TEST, &COriginView::OnTest)
 //	ON_COMMAND(ID_TEST1_SHOW, &COriginView::OnTest1Show)
 	ON_WM_RBUTTONDOWN()
+	ON_COMMAND(ID_TEST1_SHOW, &COriginView::OnTest1Show)
 END_MESSAGE_MAP()
 
 // COriginView construction/destruction
@@ -135,4 +136,11 @@ void COriginView::OnRButtonDown(UINT nFlags, CPoint point)
 	pPopup->TrackPopupMenu(TPM_LEFTALIGN | TPM_RIGHTBUTTON, point.x, point.y, GetParent()); //if no View, then MainFrame
 
 	CView::OnRButtonDown(nFlags, point);
+}
+
+
+void COriginView::OnTest1Show()
+{
+	// TODO: Add your command handler code here
+	MessageBox(L"From View");
 }
