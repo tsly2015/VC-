@@ -37,6 +37,7 @@ static UINT indicators[] =
 CMainFrame::CMainFrame()
 {
 	// TODO: add member initialization code here
+	m_bAutoMenuEnable = FALSE;
 }
 
 CMainFrame::~CMainFrame()
@@ -81,6 +82,8 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	m_bitmap1.LoadBitmap(IDB_BITMAP1);
 	m_bitmap2.LoadBitmap(IDB_BITMAP2);
 	GetMenu()->GetSubMenu(2)->SetMenuItemBitmaps(0, MF_BYPOSITION, &m_bitmap1, &m_bitmap2);
+
+	GetMenu()->GetSubMenu(0)->EnableMenuItem(1, MF_BYPOSITION | MF_DISABLED | MF_GRAYED);
 	return 0;
 }
 
