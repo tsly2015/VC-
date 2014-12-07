@@ -45,6 +45,7 @@ public:
 	CBitmap m_bitmap2;
 	afx_msg void OnUpdateEditCopy(CCmdUI *pCmdUI);
 	afx_msg void OnTest1Show();
+	virtual BOOL OnCommand(WPARAM wParam, LPARAM lParam);
 };
 
 

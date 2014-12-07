@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include "OriginDoc.h"
 
 class COriginView : public CView
 {

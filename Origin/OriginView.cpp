@@ -9,7 +9,6 @@
 #include "Origin.h"
 #endif
 
-#include "OriginDoc.h"
 #include "OriginView.h"
 
 #ifdef _DEBUG

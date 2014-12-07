@@ -6,6 +6,7 @@
 #include "Origin.h"
 
 #include "MainFrm.h"
+#include "OriginView.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -164,4 +165,20 @@ void CMainFrame::OnTest1Show()
 void CMainFrame::OnHello()
 {
 	MessageBox(L"Hello");
+}
+
+BOOL CMainFrame::OnCommand(WPARAM wParam, LPARAM lParam)
+{
+	// TODO: Add your specialized code here and/or call the base class
+	int MenuCmdID = LOWORD(wParam);
+	COriginView* pView = (COriginView*)GetActiveView();
+	if (MenuCmdID >= IDM_PHONE1 && MenuCmdID < IDM_PHONE1 + pView->m_strArray.GetSize())
+	{
+		MessageBox(L"From CMainFrame::OnCommand()"); //This means CMainFrame captures OnCommand() first
+		CClientDC dc(pView);
+		dc.TextOutW(0, 0, pView->m_strArray.GetAt(MenuCmdID - IDM_PHONE1));
+		return TRUE;
+	}
+
+	return CFrameWnd::OnCommand(wParam, lParam);
 }
