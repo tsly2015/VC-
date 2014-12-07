@@ -40,6 +40,8 @@ protected:
 
 public:
 	afx_msg void OnTest();
+	CBitmap m_bitmap1;
+	CBitmap m_bitmap2;
 };
 
 

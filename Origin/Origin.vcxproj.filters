@@ -77,5 +77,11 @@
     <Image Include="res\Toolbar.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="res\blueA.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\blueZ.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

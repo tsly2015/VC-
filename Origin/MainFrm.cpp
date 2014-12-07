@@ -74,6 +74,13 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	GetMenu()->GetSubMenu(0)->SetDefaultItem(ID_FILE_OPEN, FALSE); //overwritten by next line
 	GetMenu()->GetSubMenu(0)->SetDefaultItem(5, TRUE);
 
+	//CString str;
+	//str.Format(L"x=%d, y=%d", GetSystemMetrics(SM_CXMENUCHECK), GetSystemMetrics(SM_CXMENUCHECK));
+	//MessageBox(str);
+
+	m_bitmap1.LoadBitmap(IDB_BITMAP1);
+	m_bitmap2.LoadBitmap(IDB_BITMAP2);
+	GetMenu()->GetSubMenu(2)->SetMenuItemBitmaps(0, MF_BYPOSITION, &m_bitmap1, &m_bitmap2);
 	return 0;
 }
 

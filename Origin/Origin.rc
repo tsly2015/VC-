@@ -78,6 +78,8 @@ IDR_OriginTYPE          ICON                    "res\\OriginDoc.ico"
 //
 
 IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+IDB_BITMAP1             BITMAP                  "res\\blueA.bmp"
+IDB_BITMAP2             BITMAP                  "res\\blueZ.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //

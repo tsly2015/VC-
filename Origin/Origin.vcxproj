@@ -126,6 +126,8 @@
     <None Include="res\Origin.rc2" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\blueA.bmp" />
+    <Image Include="res\blueZ.bmp" />
     <Image Include="res\Origin.ico" />
     <Image Include="res\OriginDoc.ico" />
     <Image Include="res\Toolbar.bmp" />
